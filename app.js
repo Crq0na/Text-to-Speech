@@ -38,12 +38,18 @@ utterance.onstart = function() {
 
   utterance.onerror = function (event) {
     if (event.error === "interrupted") return;
-    setStatus("Error: " + event.error, "error");
+    setStatus("Error: " + event. error, "error");
     setButtons(false);
   }
 
 
   synth.speak(utterance)
+});
+
+stopBtn.addEventListener("click", function() {
+  synth.cancel();
+  setStatus("Ready");
+  setButtons(false);
 });
 
 
