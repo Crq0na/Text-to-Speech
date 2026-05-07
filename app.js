@@ -1,7 +1,7 @@
 const textInput = document.getElementById("text-input");
 const speakBtn = document.getElementById("speak-btn");
-const stopBtn = document.getElementById ("stop-btn");
-const statusBox = document.getElementById("ststaus-box");
+const stopBtn = document.getElementById("stop-btn");
+const statusBox = document.getElementById("status-box");
 const synth = window.speechSynthesis;
 
 function setStatus(message, type) {
@@ -27,12 +27,6 @@ speakBtn.addEventListener("click", function() {
   synth.cancel();
 
   const utterance = new SpeechSynthesisUtterance(text);
-
-
-
-  synth.speak(utterance)
-});
-
 utterance.onstart = function() {
     setStatus("Speaking...", "speaking");
     setButtons(true);
@@ -47,4 +41,10 @@ utterance.onstart = function() {
     setStatus("Error: " + event.error, "error");
     setButtons(false);
   }
+
+
+  synth.speak(utterance)
+});
+
+
 
